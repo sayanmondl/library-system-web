@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --black: #383838;
+}
+
+::selection {
+  background-color: var(--black);
+  color: white;
+}
+
+@layer utilities {
+  .button-default {
+    @apply rounded-[5px] border px-3 py-2 font-old text-lg font-bold text-black-100 duration-200 hover:bg-black-100 hover:text-white xs:px-12;
+  }
+  .button-black {
+    @apply w-56 rounded-[5px] bg-black-100 py-3 font-gloock text-lg text-white-100 hover:bg-black-400;
+  }
+  .button-black-disabled {
+    @apply w-56 cursor-not-allowed rounded-[5px] bg-[#5a5a5a] py-3 font-gloock text-lg text-[#bcbcbc] hover:bg-black-400;
+  }
+  .button-black2 {
+    @apply w-36 rounded-[5px] bg-black-100 py-2 font-old text-lg font-bold text-white-100 hover:bg-black-400;
+  }
+  .button-black-nw {
+    @apply rounded-[5px] bg-black-100 py-2 font-old text-lg font-bold text-white-100 hover:bg-black-400;
+  }
+  .button-black3 {
+    @apply w-64 rounded-[5px] bg-black-100 py-2 font-old text-lg font-bold text-white-100 hover:bg-black-400;
+  }
+  .button-white {
+    @apply w-36 rounded-[5px] border py-2 font-old text-lg font-bold text-black-100 hover:bg-black-100 hover:text-white-100;
+  }
+  .button-white-nw {
+    @apply rounded-[5px] border py-2 font-old text-lg font-bold text-black-100 hover:bg-black-100 hover:text-white-100;
+  }
+  .button-red {
+    @apply w-36 rounded-[5px] border bg-red py-2 font-old text-lg font-bold text-white-100 hover:bg-red-100;
+  }
+  .button-red-nw {
+    @apply rounded-[5px] border bg-red py-2 font-old text-lg font-bold text-white-100 hover:bg-red-100;
+  }
+
+  .search-input {
+    @apply h-10 w-44 rounded-[5px] border-2 border-solid border-black-100;
+  }
+
+  .border {
+    @apply rounded-[5px] border-2 border-solid border-black-100;
+  }
+
+  .default-shadow {
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  }
+}
+
+p,
+h1,
+h2 {
+  font-family: "Gloock";
+  color: #383838;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid #000;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

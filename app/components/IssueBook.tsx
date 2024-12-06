@@ -37,7 +37,7 @@ const IssueBook = (params: IssueProp) => {
       </button>
 
       {error && <p className="error">{error}</p>}
-      {success && <Toast message={"Book issued successfully"} onClose={() => setSuccess(null)} />}
+      {success && <Toast message={message} onClose={() => setSuccess(null)} />}
     </div>
   );
 };

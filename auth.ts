@@ -1,4 +1,4 @@
-import NextAuth, { CredentialsSignin } from "next-auth";
+import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import connectDB from "./lib/db";
 import { User } from "./models/User";
@@ -17,20 +17,23 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const password = credentials.password as string | undefined;
 
         if (!email || !password) {
-          throw new CredentialsSignin("Please provide both email and password");
+          throw new Error("Please provide both email and password");
         }
 
         await connectDB();
 
         const user = await User.findOne({ email }).select("+password +role");
+
         if (!user) {
           throw new Error("Invalid Email or password");
         }
+
         if (!user.password) {
           throw new Error("Invalid Email or password");
         }
 
         const isPasswordMatched = await compare(password, user.password);
+
         if (!isPasswordMatched) {
           throw new Error("Invalid Email or password");
         }
@@ -49,11 +52,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   pages: {
     signIn: "/login",
   },
-
   session: {
     strategy: "jwt",
   },
-
   callbacks: {
     async session({ session, token }) {
       if (token?.sub && typeof token.role === "string") {
@@ -62,14 +63,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
       return session;
     },
-
     async jwt({ token, user }) {
       if (user) {
         token.role = user.role as string;
       }
       return token;
     },
-
     signIn: async ({ user, account }) => {
       if (account?.provider === "credentials") {
         return true;

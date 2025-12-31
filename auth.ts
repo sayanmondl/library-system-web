@@ -13,6 +13,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
+        if (!credentials) {
+          throw new Error("No credentials provided");
+        }
+
         const email = credentials.email as string | undefined;
         const password = credentials.password as string | undefined;
 

@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "packageManager": "npm@10.9.0",
+  "packageManager": "npm@11.6.1",
   "overrides": {
     "react": "$react",
     "react-dom": "$react-dom"
@@ -19,9 +19,9 @@
     "bcryptjs": "^2.4.3",
     "lucide-react": "^0.460.0",
     "mongoose": "^8.8.1",
-    "next": "15.0.7",
-    "next-auth": "^5.0.0-beta.25",
-    "nodemailer": "^6.9.16",
+    "next": "^15.5.9",
+    "next-auth": "^4.24.13",
+    "nodemailer": "^7.0.12",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-intersection-observer": "^9.13.1",

@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
-    "@vercel/blob": "^0.26.0",
+    "@vercel/blob": "^2.3.1",
     "bcryptjs": "^2.4.3",
     "lucide-react": "^0.460.0",
     "mongoose": "^8.8.1",
